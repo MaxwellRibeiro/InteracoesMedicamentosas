@@ -125,6 +125,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\InteracoesMedicamentosas.mdf" />
+    <Content Include="App_Data\InteracoesMedicamentosas_log.ldf">
+      <DependentUpon>InteracoesMedicamentosas.mdf</DependentUpon>
+    </Content>
     <Content Include="content\materialize\css\materialize.css" />
     <Content Include="content\materialize\css\materialize.min.css" />
     <Content Include="content\materialize\font\material-design-icons\LICENSE.txt" />
@@ -203,6 +207,10 @@
     </Content>
     <Content Include="scripts\jquery-2.1.1.min.map" />
     <Content Include="Views\Interacao\Index.cshtml" />
+    <Content Include="Views\Interacao\Details.cshtml" />
+    <Content Include="Views\Interacao\Create.cshtml" />
+    <Content Include="Views\Interacao\Edit.cshtml" />
+    <Content Include="Views\Interacao\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -210,9 +218,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

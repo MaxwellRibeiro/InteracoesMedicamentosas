@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using InteracoesMedicamentosas.Context;
+using InteracoesMedicamentosas.Models;
 
 namespace InteracoesMedicamentosas.Controllers
 {
@@ -21,24 +23,40 @@ namespace InteracoesMedicamentosas.Controllers
         }
 
         // GET: Interacao/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Interacao interacao = context.Interacoes.Where(p => p.InteracaoId == id).Include
+                (p => p.Produto).Include(r => r.Reacao).First();
+
+            if (interacao == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(interacao);
         }
 
         // GET: Interacao/Create
         public ActionResult Create()
         {
+            ViewBag.ProdutoId = new SelectList(context.Produtos.OrderBy(p => p.Nome), "ProdutoId", "Nome");
+            ViewBag.ReacaoId = new SelectList(context.Reacoes.OrderBy(p => p.Nome), "ReacaoId", "Nome");
             return View();
         }
 
         // POST: Interacao/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Interacao interacao)
         {
             try
             {
-                // TODO: Add insert logic here
+                context.Interacoes.Add(interacao);
+                context.SaveChanges();
 
                 return RedirectToAction("Index");
             }
@@ -49,40 +67,75 @@ namespace InteracoesMedicamentosas.Controllers
         }
 
         // GET: Interacao/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Interacao interacao = context.Interacoes.Find(id);
+
+            if (interacao == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ProdutoId = new SelectList(context.Produtos.OrderBy(p => p.Nome), "ProdutoId", "Nome");
+            ViewBag.ReacaoId = new SelectList(context.Reacoes.OrderBy(p => p.Nome), "ReacaoId", "Nome");
+
+            return View(interacao);
         }
 
         // POST: Interacao/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Interacao interacao)
         {
             try
             {
-                // TODO: Add update logic here
+                if (ModelState.IsValid)
+                {
+                    context.Entry(interacao).State = EntityState.Modified;
+                    context.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-                return RedirectToAction("Index");
+                return View(interacao);
             }
             catch
             {
-                return View();
+                return View(interacao);
             }
         }
 
         // GET: Interacao/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Interacao interacao = context.Interacoes.Where(p => p.InteracaoId == id).Include
+                (p => p.Produto).Include(r => r.ReacaoId).First();
+
+            if (interacao == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(interacao);
         }
 
         // POST: Interacao/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id)
         {
             try
             {
-                // TODO: Add delete logic here
+                Interacao venda = context.Interacoes.Find(id);
+                if (venda != null)
+                {
+                    context.Interacoes.Remove(venda);
+                    context.SaveChanges();
+                }
 
                 return RedirectToAction("Index");
             }

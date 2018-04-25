@@ -17,6 +17,7 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Interacao
         public ActionResult Index()
         {
+            
             var interacoes =
                 context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).OrderBy(i => i.InteracaoId);
             return View(interacoes);

@@ -185,12 +185,15 @@
     <Content Include="scripts\jquery-2.1.1.min.js" />
     <Content Include="scripts\materialize\materialize.js" />
     <Content Include="scripts\materialize\materialize.min.js" />
+    <Content Include="scripts\JS\Interacao.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\EFContext.cs" />
     <Compile Include="Controllers\InteracaoController.cs" />
+    <Compile Include="Controllers\InteracoesMedicamentosasController.cs" />
+    <Compile Include="Controllers\ItensController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -211,6 +214,8 @@
     <Content Include="Views\Interacao\Create.cshtml" />
     <Content Include="Views\Interacao\Edit.cshtml" />
     <Content Include="Views\Interacao\Delete.cshtml" />
+    <Content Include="Views\Itens\ListarItens.cshtml" />
+    <Content Include="Views\InteracoesMedicamentosas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

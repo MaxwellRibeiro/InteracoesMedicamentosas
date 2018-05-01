@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using InteracoesMedicamentosas.Context;
 using InteracoesMedicamentosas.Models;
+using Microsoft.SqlServer.Server;
 
 namespace InteracoesMedicamentosas.Controllers
 {
@@ -17,7 +18,6 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Interacao
         public ActionResult Index()
         {
-            
             var interacoes =
                 context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).OrderBy(i => i.InteracaoId);
             return View(interacoes);
@@ -30,7 +30,6 @@ namespace InteracoesMedicamentosas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             Interacao interacao = context.Interacoes.Where(p => p.InteracaoId == id).Include
                 (p => p.Produto).Include(r => r.Reacao).First();
 
@@ -45,8 +44,8 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Interacao/Create
         public ActionResult Create()
         {
-            ViewBag.ProdutoId = new SelectList(context.Produtos.OrderBy(p => p.Nome), "ProdutoId", "Nome");
-            ViewBag.ReacaoId = new SelectList(context.Reacoes.OrderBy(p => p.Nome), "ReacaoId", "Nome");
+            ViewBag.Produtos = context.Produtos.OrderBy(p => p.Nome).ToList();
+            ViewBag.Reacoes = context.Reacoes.OrderBy(p => p.Nome).ToList();
             return View();
         }
 
@@ -58,13 +57,13 @@ namespace InteracoesMedicamentosas.Controllers
             {
                 context.Interacoes.Add(interacao);
                 context.SaveChanges();
-
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return Json(new { Resultado = 0 }, JsonRequestBehavior.AllowGet);
             }
+
+            return Json(new { Resultado = interacao.InteracaoId }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Interacao/Edit/5
@@ -114,9 +113,7 @@ namespace InteracoesMedicamentosas.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Interacao interacao = context.Interacoes.Where(p => p.InteracaoId == id).Include
-                (p => p.Produto).Include(r => r.ReacaoId).First();
-
+            Interacao interacao = context.Interacoes.Where(p => p.InteracaoId == id).Include(p => p.Produto).Include(r => r.Reacao).First();
             if (interacao == null)
             {
                 return HttpNotFound();

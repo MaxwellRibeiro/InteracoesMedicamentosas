@@ -47,4 +47,3 @@ C:\Users\Maxwell.Ribeiro\Documents\GitHub\InteracoesMedicamentosas\InteracoesMed
 C:\Users\Maxwell.Ribeiro\Documents\GitHub\InteracoesMedicamentosas\InteracoesMedicamentosas\bin\System.Web.Mvc.xml
 C:\Users\Maxwell.Ribeiro\Documents\GitHub\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.dll
 C:\Users\Maxwell.Ribeiro\Documents\GitHub\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.pdb
-C:\Users\Maxwell.Ribeiro\Documents\GitHub\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.csprojResolveAssemblyReference.cache

@@ -1,56 +1,9 @@
 ﻿@{
-    Layout = null;
+    Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link rel="stylesheet" href="../../content/materialize/css/materialize.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-</head>
-<body>
-    <div class="navbar-fixed">
-        <nav class="red">
-            <div class="nav-wrapper">
-                <a href="#!" class="brand-logo"><i class="material-icons">verified_user</i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="@Url.Action("Index", "Interacao")">Interações</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-
-
-<footer class="page-footer red">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Volte Sempre!</h5>
-                    <p class="grey-text text-lighten-4">Grupo.</p>
-                </div>
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Parceiros</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Microsoft</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Lenovo</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Amarecanas</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-        </div>
-    </footer>
-
-<!-- Jquery-->
+    <!-- Jquery-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- Materialize JS-->
     <script src="../../scripts/materialize/materialize.min.js"></script>
@@ -64,8 +17,4 @@
         $('select').formSelect();
     });
     </script>
-</body>
 
-
-
-</html>

@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+    <link rel="stylesheet" href="../../content/materialize/css/materialize.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body >
+     <!-- Cabeçalho -->
+     @RenderPage("~/Views/Layout/Shared/_cabecalho.cshtml")
+
+    <!-- Corpo-->
+    @RenderBody()
+
+    <!-- Rodapé -->
+    @RenderPage("~/Views/Layout/Shared/_rodape.cshtml")
+    <!-- Jquery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Materialize JS-->
+    <script src="../../scripts/materialize/materialize.min.js"></script>
+
+</body>
+</html>

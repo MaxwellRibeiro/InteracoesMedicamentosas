@@ -180,6 +180,9 @@
     <Content Include="content\materialize\fonts\roboto\Roboto-Bold.woff" />
     <Content Include="content\materialize\fonts\roboto\Roboto-Bold.ttf" />
     <Content Include="content\materialize\fonts\roboto\Roboto-Bold.eot" />
+    <Content Include="Views\Layout\Shared\_layout.cshtml" />
+    <Content Include="Views\Layout\Shared\_cabecalho.cshtml" />
+    <Content Include="Views\Layout\Shared\_rodape.cshtml" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />

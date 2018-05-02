@@ -194,6 +194,7 @@
     <Compile Include="Controllers\InteracaoController.cs" />
     <Compile Include="Controllers\InteracoesMedicamentosasController.cs" />
     <Compile Include="Controllers\ItensController.cs" />
+    <Compile Include="Controllers\ReacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,7 +224,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Reacao\" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

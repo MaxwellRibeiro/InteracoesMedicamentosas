@@ -1,11 +1,51 @@
-﻿@{
+﻿@model InteracoesMedicamentosas.Models.Interacao
+
+@{
     Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
-    <script>
-    // Or with jQuery    
-    $(document).ready(function () {
-        $('select').formSelect();
-    });
-    </script>
+    <div class="carousel carousel-slider center" data-indicators="true" style="height: 500px;">
 
+        <div class="carousel-fixed-item center">
+            <a class="btn waves-effect white grey-text darken-text-2" href="contato.html">solicite um orçamento</a>
+        </div>
+
+
+
+        <div class="carousel-item green white-text center" href="#one!">
+
+
+            <br>
+            <h1> O que muda com <br> o zem? </h1>
+
+        </div>
+
+
+        <div class="carousel-item red white-text" href="#one!">
+
+            <p class="white-text">
+                O cidadão participa ativamente
+                colaborando para a gestão de sua cidade.
+            </p>
+        </div>
+
+        <div class="carousel-item" href="#two!">
+
+            <img src="https://www.minascap.com/MINASCAP/_lib/file/img/EDICAO-51-MINASCAP--BANNER%202.jpg(1).jpg">
+
+        </div>
+
+
+
+        <div class="carousel-item green white-text" href="#three!">
+            <h2>Third Panel</h2>
+            <p class="white-text">This is your third panel</p>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function(){
+          $('.carousel').carousel();
+        });
+    </script>

@@ -148,6 +148,7 @@
     <Compile Include="Controllers\InteracaoController.cs" />
     <Compile Include="Controllers\InteracoesMedicamentosasController.cs" />
     <Compile Include="Controllers\ItensController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Controllers\ReacaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -179,6 +180,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Produto\" />
     <Folder Include="Views\Reacao\" />
   </ItemGroup>
   <ItemGroup>

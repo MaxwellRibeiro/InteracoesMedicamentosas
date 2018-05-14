@@ -133,9 +133,18 @@
     <Content Include="Img\ParallaxMedico.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\jquery-1.10.2.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Layout\Shared\_layout.cshtml" />
     <Content Include="Views\Layout\Shared\_cabecalho.cshtml" />
     <Content Include="Views\Layout\Shared\_rodape.cshtml" />
+    <Content Include="scripts\jquery-1.10.2.min.map" />
     <None Include="scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="scripts\jquery-2.1.1.js" />
     <Content Include="scripts\jquery-2.1.1.min.js" />
@@ -172,6 +181,7 @@
     <Content Include="Views\Interacao\Delete.cshtml" />
     <Content Include="Views\Itens\ListarItens.cshtml" />
     <Content Include="Views\InteracoesMedicamentosas\Index.cshtml" />
+    <Content Include="Views\Produto\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -180,7 +190,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Produto\" />
     <Folder Include="Views\Reacao\" />
   </ItemGroup>
   <ItemGroup>

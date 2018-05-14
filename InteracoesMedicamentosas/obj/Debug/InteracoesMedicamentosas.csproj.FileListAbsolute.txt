@@ -95,6 +95,6 @@ C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\Interacoes
 C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\bin\System.Web.Webpages.Razor.xml
 C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\bin\System.Web.Helpers.xml
 C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\bin\System.Web.Mvc.xml
-C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.csprojResolveAssemblyReference.cache
 C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.dll
 C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.pdb
+C:\Users\Gustavo\Documents\Trabalho_Iteracao\InteracoesMedicamentosas\InteracoesMedicamentosas\obj\Debug\InteracoesMedicamentosas.csprojResolveAssemblyReference.cache

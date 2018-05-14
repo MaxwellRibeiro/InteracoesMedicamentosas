@@ -11,6 +11,7 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Reacao
         public ActionResult Index()
         {
+
             return View();
         }
     }

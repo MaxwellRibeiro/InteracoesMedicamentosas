@@ -1,47 +1,58 @@
 ﻿@model IEnumerable<InteracoesMedicamentosas.Models.Interacao>
 
 @{
-    Layout = null;
+    Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Produto.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Reacao.Nome)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Produto.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reacao.Nome)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.InteracaoId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.InteracaoId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.InteracaoId })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+
+<div class="row  grey lighten-1">
+    <div class="col s12 " align="center">
+        <p></p>
+        <a href="@Url.Action("Create", "Interacao")" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col s1"></div>
+    <div class="col s10 grey lighten-2">
+        <table class="responsive-table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Produto.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Reacao.Nome)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Produto.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Reacao.Nome)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.InteracaoId}) |
+                        @Html.ActionLink("Details", "Details", new {id = item.InteracaoId}) |
+                        @Html.ActionLink("Delete", "Delete", new {id = item.InteracaoId})
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col s1"></div>
+</div>
+<div class="row  grey lighten-1">
+    <div class="col s12 " align="center">
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>
+
+

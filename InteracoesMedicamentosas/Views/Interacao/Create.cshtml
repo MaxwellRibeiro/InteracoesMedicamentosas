@@ -2,7 +2,7 @@
 @model InteracoesMedicamentosas.Models.Interacao
 
 @{
-    Layout = null;
+    Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,7 +11,6 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Create</title>
-    <link rel="stylesheet" href="../../content/materialize/css/materialize.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -36,7 +35,7 @@
         <label>Reações</label>
     </div>
 
-    <a href="#" onclick="SalvarSalvarInteracao();">Salvar Pedido</a>
+    <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
 
     <div id="divItens" style="display: none">
 
@@ -47,12 +46,6 @@
 </div>
 
     
-
-<!-- Jquery-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-<!-- Materialize JS-->
-<script src="../../scripts/materialize/materialize.min.js"></script>
-
 <script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();

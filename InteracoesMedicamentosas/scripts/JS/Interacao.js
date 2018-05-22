@@ -18,9 +18,10 @@
         , datatype: "json"
         , data: { InteracaoId: 0, ReacaoId: reacao, ProdutoId: produto }
         , success: function (data) {
-            debugger;
+            //debugger;
             if (data.Resultado > 0) {
-                ListarItens(data.Resultado);
+                M.toast({ html: 'Interações Medicamentosas Salva com Sucesso!' })
+                //ListarItens(data.Resultado);
             }
         }
     });

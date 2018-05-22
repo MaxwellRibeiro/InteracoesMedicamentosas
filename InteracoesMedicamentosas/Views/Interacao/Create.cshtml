@@ -5,47 +5,58 @@
     Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <div class="input-field col s12">
-        <select name="Produto" id="Produto">
-            @foreach (var produto in (List<Produto>)ViewBag.Produtos)
-            {
-                <option value="@produto.ProdutoId">@produto.Nome</option>
-            }
-        </select>
-        <label>Produtos</label>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="row  grey">
+    <div class="col s12 " align="center">
+        <p></p>
+        <p class="flow-text white-text">Criar Interações Medicamentosas</p>
+        <p></p>
     </div>
-
-
-    <div class="input-field col s12">
-        <select name="Reacao" id="Reacao">
-            @foreach (var reacao in (List<Reacao>) ViewBag.Reacoes)
-            {
-                <option value="@reacao.ReacaoId">@reacao.Nome</option>
-            }
-        </select>
-        <label>Reações</label>
-    </div>
-
-    <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
-
-    <div id="divItens" style="display: none">
-
-    </div>
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>
 
-    
+<div class="container-flux">
+    <div class="row">
+        <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+            <div class="row">
+                <div class="col s6">
+                    <label for="Produto">Produtos</label>
+                    <select name="Produto" id="Produto">
+                        @foreach (var produto in (List<Produto>) ViewBag.Produtos)
+                        {
+                            <option value="@produto.ProdutoId">@produto.Nome</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="col s6">
+                    <label for="Reacao">Reações</label>
+                    <select name="Reacao" id="Reacao">
+                        @foreach (var reacao in (List<Reacao>) ViewBag.Reacoes)
+                        {
+                            <option value="@reacao.ReacaoId">@reacao.Nome</option>
+                        }
+                    </select>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col offset-s11 1s">
+                       <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="divItens" style="display: none"></div>
+
+<div>
+    @Html.ActionLink("Voltar", "Index")
+</div>
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         $('select').material_select();
@@ -54,5 +65,22 @@
 
 <script src="~/scripts/JS/Interacao.js"></script>
 
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

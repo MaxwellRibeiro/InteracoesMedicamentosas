@@ -4,17 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using InteracoesMedicamentosas.Models;
 
 namespace InteracoesMedicamentosas.Controllers
 {
     public class ReacaoController : Controller
     {
-        private EFContext context = new EFContext();
+        private EFContext Context = new EFContext();
 
         // GET: Reacao
         public ActionResult Index()
         {
-            return View();
+            List<Reacao> ListaReacoes = Context.Reacoes.ToList();
+            return View(ListaReacoes);
+           
         }
 
         // GET: Reacao/Details/5

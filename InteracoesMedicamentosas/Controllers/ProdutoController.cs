@@ -13,11 +13,26 @@ namespace InteracoesMedicamentosas.Controllers
     public class ProdutoController : Controller
     {
         private EFContext Context = new EFContext();
+
         // GET: Produto
         public ActionResult Index()
         {
             List<Produto> ListaProdutos = Context.Produtos.ToList();
             return View(ListaProdutos);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Produto produto)
+        {
+            Context.Produtos.Add(produto);
+            Context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Edit(long? id)
@@ -43,6 +58,20 @@ namespace InteracoesMedicamentosas.Controllers
                 Context.Entry(produto).State = EntityState.Modified;
                 Context.SaveChanges();
                 return RedirectToAction("Index");
+            }
+            return View(produto);
+        }
+
+        public ActionResult Details(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = Context.Produtos.Find(id);
+            if (produto == null)
+            {
+                return HttpNotFound();
             }
             return View(produto);
         }

@@ -4,9 +4,20 @@
     Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="row  grey">
+    <div class="col s1"></div>
+    <div class="col s10 " align="center">
+        <p></p>
+        <p class="flow-text white-text">Lista de Medicamentos</p>
+        <p></p>
+    </div>
+    <div class="col s1 " align="right">
+        <p></p>
+        <a href="@Url.Action("Create", "Produto")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
+        <p></p>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -34,9 +45,10 @@
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProdutoId }, new { @class = "waves-effect waves-light btn #388e3c green darken-2" })
-                @Html.ActionLink("Details", "Details", new { id = item.ProdutoId }, new { @class = "waves-effect waves-light btn #1565c0 blue darken-3" })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProdutoId }, new { @class = "waves-effect waves-light btn #f44336 red" })
+                <a href="@Url.Action("Edit", "Produto", new { id = item.ProdutoId })" class="waves-effect waves-light btn #388e3c green darken-2"><i class="material-icons">edit</i></a>
+                <a href="@Url.Action("Details", "Produto", new { id = item.ProdutoId })" class="waves-effect waves-light btn #1565c0 blue darken-3"><i class="material-icons">event_note</i></a>
+                <a href="@Url.Action("Edit", "Produto", new { id = item.ProdutoId })" class="waves-effect waves-light btn #f44336 red"><i class="material-icons">close</i></a>
+               
             </td>
         </tr>
     }

@@ -17,12 +17,35 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Reacao
         public ActionResult Index()
         {
+            
+
             List<Reacao> ListaReacoes = Context.Reacoes.ToList();
             return View(ListaReacoes);
            
         }
 
-        // GET: Reacao/Details/5                 TEM QUE CRIAR A VIEW
+        public ActionResult Consulta(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Reacao reacao = Context.Reacoes.Find(id);
+            if (reacao == null)
+            {
+                return HttpNotFound();
+            }
+
+            //ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
+            ViewBag.Reacoes = new SelectList(Context.Reacoes.OrderBy(p => p.Nome),"ReacaoId","Nome",reacao.ReacaoId);
+
+            var consulta = Context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).Where(c => c.ReacaoId == reacao.ReacaoId);
+            return View(consulta);
+        }
+
+
+        // GET: Reacao/Details/5                 
         public ActionResult Details(int? id)
         {
             if(id==null)
@@ -38,7 +61,7 @@ namespace InteracoesMedicamentosas.Controllers
             return View(reacao);           
         }
       
-        // GET: Reacao/Create                   TEM QUE CRIAR A VIEW
+        // GET: Reacao/Create                   
         public ActionResult Create()
         {
             return View();
@@ -99,11 +122,14 @@ namespace InteracoesMedicamentosas.Controllers
         // POST: Reacao/Delete/5
         [HttpPost]
         public ActionResult Delete(int id)
-        {
+        {         
+
             Reacao reacao = Context.Reacoes.Find(id);
             Context.Reacoes.Remove(reacao);
             Context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
     }
 }

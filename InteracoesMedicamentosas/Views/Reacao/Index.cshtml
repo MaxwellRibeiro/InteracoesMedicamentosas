@@ -5,11 +5,25 @@
 }
 
 
-    <p>                    @*texto       view*@
+    @*<p>                    texto       view
         @Html.ActionLink("Create New", "Create")
         @Html.ActionLink("Consultar","Consulta")
 
-    </p>
+    </p>*@
+
+<div class="row  grey">
+<div class="col s1"></div>
+<div class="col s10 " align="center">
+    <p></p>
+    <p class="flow-text white-text">Lista de Reacoes</p>
+    <p></p>
+</div>
+<div class="col s1 " align="right">
+    <p></p>
+    <a href="@Url.Action("Create", "Reacao")" class="btn-floating btn-large waves-effect waves-light blue"><i class="material-icons">add</i></a>
+    <p></p>
+</div>
+</div>
     <table class="table">
         <tr>
             <th>

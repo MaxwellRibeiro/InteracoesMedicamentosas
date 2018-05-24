@@ -20,7 +20,7 @@
         , success: function (data) {
             //debugger;
             if (data.Resultado > 0) {
-                M.toast({ html: 'Interações Medicamentosas Salva com Sucesso!' })
+                M.toast({ html: 'Interação Salvo com Sucesso!' })
                 //ListarItens(data.Resultado);
             }
         }

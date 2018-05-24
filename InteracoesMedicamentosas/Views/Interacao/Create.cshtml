@@ -2,85 +2,93 @@
 @model InteracoesMedicamentosas.Models.Interacao
 
 @{
-    Layout = "~/Views/Layout/Shared/_layout.cshtml";
+    Layout = "";
 }
 
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>Home</title>*@
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-<div class="row  grey">
-    <div class="col s12 " align="center">
-        <p></p>
-        <p class="flow-text white-text">Criar Interações Medicamentosas</p>
-        <p></p>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    @RenderPage("~/Views/Layout/Shared/_cabecalho.cshtml")
+
+    <!-- Corpo-->
+    <div class="row  grey">
+        <div class="col s12 " align="center">
+            <p></p>
+            <p class="flow-text white-text">Criar Interações Medicamentosas</p>
+            <p></p>
+        </div>
     </div>
-</div>
 
-<div class="container-flux">
-    <div class="row">
-        <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
-            <div class="row">
-                <div class="col s6">
-                    <label for="Produto">Produtos</label>
-                    <select name="Produto" id="Produto">
-                        @foreach (var produto in (List<Produto>) ViewBag.Produtos)
-                        {
-                            <option value="@produto.ProdutoId">@produto.Nome</option>
-                        }
-                    </select>
+    <div class="container-flux">
+        <div class="row">
+            <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+                <div class="row">
+                    <div class="col s6">
+                        <label for="Produto">Produtos</label>
+                        <select name="Produto" id="Produto">
+                            @foreach (var produto in (List<Produto>)ViewBag.Produtos)
+                            {
+                                <option value="@produto.ProdutoId">@produto.Nome</option>
+                            }
+                        </select>
 
+                    </div>
+                    <div class="col s6">
+                        <label for="Reacao">Reações</label>
+                        <select name="Reacao" id="Reacao">
+                            @foreach (var reacao in (List<Reacao>)ViewBag.Reacoes)
+                            {
+                                <option value="@reacao.ReacaoId">@reacao.Nome</option>
+                            }
+                        </select>
+
+                    </div>
                 </div>
-                <div class="col s6">
-                    <label for="Reacao">Reações</label>
-                    <select name="Reacao" id="Reacao">
-                        @foreach (var reacao in (List<Reacao>) ViewBag.Reacoes)
-                        {
-                            <option value="@reacao.ReacaoId">@reacao.Nome</option>
-                        }
-                    </select>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col offset-s11 1s">
-                       <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
+                <div class="row">
+                    <div class="col offset-s11 1s">
+                        <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div id="divItens" style="display: none"></div>
+    @*<div id="divItens" style="display: none"></div>*@
 
-<div>
-    @Html.ActionLink("Voltar", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Voltar", "Index")
+    </div>
 
 
 <script type="text/javascript">
+    //$(document).ready(function() {
+    //    $('select').material_select();
+    //});
     $(document).ready(function () {
-        $('select').material_select();
+        $('select').formSelect();
     });
 </script>
 
+
+
 <script src="~/scripts/JS/Interacao.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Rodapé -->
+    @RenderPage("~/Views/Layout/Shared/_rodape.cshtml")
+</body>
+</html>

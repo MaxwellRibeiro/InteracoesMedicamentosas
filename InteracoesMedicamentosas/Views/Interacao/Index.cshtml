@@ -3,9 +3,9 @@
 @{
     Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
+
 <div class="row  grey">
-    <div class="col s1"></div>
-    <div class="col s10 " align="center">
+    <div class="col s10 offset-s1" align="center">
         <p></p>
         <p class="flow-text white-text">Lista de Interações Medicamentosas</p>
         <p></p>
@@ -16,39 +16,42 @@
         <p></p>
     </div>
 </div>
-<div class="row">
-    <div class="col s1"></div>
-    <div class="col s10 grey lighten-2">
-        <table class="responsive-table">
-            <tr>
-                <th>
-                    <p>Nome Produtos</p>
-                    @*@Html.DisplayNameFor(model => model.Produto.Nome)*@
-                </th>
-                <th>
-                    <p>Nome Reação</p>
-                    @*@Html.DisplayNameFor(model => model.Reacao.Nome)*@
-                </th>
-                <th></th>
-            </tr>
 
+<div class="container-flux">
+    <div class="row">
+        <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+            <div class="row">
+                <div class="row">
+                    <div class="col s4">
+                        <b><p>Nome Produto</p></b>
+                    </div>
+                    <div class="col s4">
+                        <b><p>Nome Reação</p></b>
+                    </div>
+                    <p><div class="col s4"></div></p>
+                </div>
+            </div>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
+                <div class="row">
+                    <div class="col s4">
                         @Html.DisplayFor(modelItem => item.Produto.Nome)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Reacao.Nome)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new {id = item.InteracaoId}) |
-                        @Html.ActionLink("Details", "Details", new {id = item.InteracaoId}) |
-                        @Html.ActionLink("Delete", "Delete", new {id = item.InteracaoId})
-                    </td>
-                </tr>
+                    </div>
+                    <div class="col s4">
+                       @Html.DisplayFor(modelItem => item.Reacao.Nome)
+                    </div>
+                    <div class="col s4">
+                        <a href="@Url.Action("Edit", "Interacao", new { id = item.InteracaoId })" class="waves-effect waves-light btn #388e3c green darken-2"><i class="material-icons">edit</i></a>
+                        <a href="@Url.Action("Details", "Interacao", new { id = item.InteracaoId })" class="waves-effect waves-light btn #1565c0 blue darken-3"><i class="material-icons">event_note</i></a>
+                        <a href="@Url.Action("Delete", "Interacao", new { id = item.InteracaoId })" class="waves-effect waves-light btn #f44336 red"><i class="material-icons">close</i></a>
+                    </div>
+                </div>
             }
-        </table>
+            @*<div class="row">
+                <div class="col offset-s11 1s">
+                    <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
+                </div>
+            </div>*@
+        </div>
     </div>
-    <div class="col s1"></div>
 </div>

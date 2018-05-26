@@ -31,10 +31,17 @@
             </div>
             <div class="row">
                 <div class="col offset-s5 2s">
-                    <input type="button" value="Voltar" onclick="history.go(-1)" class="btn btn-default" />
+                    <a href="@Url.Action("Index", "Interacao")" class="btn btn-default">Voltar</a>
                 </div>
                 <div class="col 2s">
-                    <a href="@Url.Action("Delete", "Interacao", new {id = Model.InteracaoId})" class="btn btn-default">Deletar</a>
+                    @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-actions no-color">
+                                <input type="submit" value="Delete" class="btn btn-default"/>
+                            </div>
+                        }
                 </div>
             </div>
         </div>

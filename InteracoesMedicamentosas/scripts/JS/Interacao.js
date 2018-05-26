@@ -22,8 +22,54 @@
             if (data.Resultado > 0) {
                 M.toast({ html: 'Interação Salvo com Sucesso!' })
                 //ListarItens(data.Resultado);
+            } else {
+                M.toast({ html: 'Não foi Possivel Alterar Interação!' });
             }
         }
+
+    });
+}
+
+function AlterarInteracao(id) {
+
+    //debugger;
+
+    //Produto
+    var produto = $("#Produto").val();
+
+    //Cliente
+    var reacao = $("#Reacao").val();
+
+
+    //Gravar
+    var url = "/Interacao/Edit";
+
+    $.ajax({
+        url: url
+        , type: "POST"
+        , datatype: "json"
+        , data: { InteracaoId: id, ReacaoId: reacao, ProdutoId: produto }
+        , success: function (data) {
+            //debugger;
+            if (data.Resultado > 0) {
+                M.toast({ html: 'Interação Alterada com Sucesso!' });
+                Voltar();
+            } else {
+                M.toast({ html: 'Não foi Possivel Alterar Interação!' });
+            }
+        }
+    });
+}
+
+function Voltar() {
+
+    var url = "/Interacao/Voltar";
+
+    $.ajax({
+        url: url
+        , type: "POST"
+        , data: {}
+        , datatype: "html"
     });
 }
 
@@ -43,5 +89,4 @@ function ListarItens(idPedido) {
             divItens.html(data);
         }
     });
-
 }

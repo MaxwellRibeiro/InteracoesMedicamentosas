@@ -1,44 +1,104 @@
-﻿@model InteracoesMedicamentosas.Models.Interacao
+﻿@using InteracoesMedicamentosas.Models
+@model InteracoesMedicamentosas.Models.Interacao
 
 @{
-    Layout = "~/Views/Layout/Shared/_layout.cshtml";
+    Layout = "";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>Home</title>*@
 
-    <div class="form-horizontal">
-        <h4>Interacao</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.InteracaoId)
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ReacaoId, "ReacaoId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ReacaoId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ReacaoId, "", new { @class = "text-danger" })
-            </div>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    @RenderPage("~/Views/Layout/Shared/_cabecalho.cshtml")
+
+    <!-- Corpo-->
+    <div class="row  grey">
+        <div class="col s12 " align="center">
+            <p></p>
+            <p class="flow-text white-text">Criar Interações Medicamentosas</p>
+            <p></p>
         </div>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProdutoId, "ProdutoId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("ProdutoId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ProdutoId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    <div class="container-flux">
+        <div class="row">
+            <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+                <div class="row">
+                    <div class="col s6">
+                        <label for="Produto">Produtos</label>
+                        <select name="Produto" id="Produto">
+                            @foreach (var produto in (List<Produto>)ViewBag.Produtos)
+                            {
+                                if (produto.ProdutoId == Model.ProdutoId)
+                                {
+                                    <option value="@produto.ProdutoId" disabled selected>@produto.Nome</option>
+                                }
+                                else
+                                {
+                                    <option value="@produto.ProdutoId">@produto.Nome</option>
+                                }
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                            }
+                        </select>
+
+                    </div>
+                    <div class="col s6">
+                        <label for="Reacao">Reações</label>
+                        <select name="Reacao" id="Reacao">
+                            @foreach (var reacao in (List<Reacao>)ViewBag.Reacoes)
+                            {
+                                if (reacao.ReacaoId == Model.ReacaoId)
+                                {
+                                    <option value="@reacao.ReacaoId" disabled selected>@reacao.Nome</option>
+                                }
+                                else
+                                {
+                                    <option value="@reacao.ReacaoId">@reacao.Nome</option>
+                                }
+
+                            }
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col offset-s5 2s">
+                        <a href="@Url.Action("Index", "Interacao")" class="btn btn-default">Voltar</a>
+                    </div>
+                    <div class="col 2s">
+                        <a href="#" class="btn btn-default" onclick="AlterarInteracao(@Model.InteracaoId);">Editar</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+    </script>
+
+
+
+    <script src="~/scripts/JS/Interacao.js"></script>
+
+    <!-- Rodapé -->
+    @RenderPage("~/Views/Layout/Shared/_rodape.cshtml")
+</body>
+</html>
 

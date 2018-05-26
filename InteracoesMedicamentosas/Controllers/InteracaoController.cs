@@ -79,8 +79,9 @@ namespace InteracoesMedicamentosas.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProdutoId = new SelectList(context.Produtos.OrderBy(p => p.Nome), "ProdutoId", "Nome");
-            ViewBag.ReacaoId = new SelectList(context.Reacoes.OrderBy(p => p.Nome), "ReacaoId", "Nome");
+
+            ViewBag.Produtos = context.Produtos.OrderBy(p => p.Nome).ToList();
+            ViewBag.Reacoes = context.Reacoes.OrderBy(p => p.Nome).ToList();
 
             return View(interacao);
         }
@@ -95,15 +96,14 @@ namespace InteracoesMedicamentosas.Controllers
                 {
                     context.Entry(interacao).State = EntityState.Modified;
                     context.SaveChanges();
-                    return RedirectToAction("Index");
+                   
                 }
-
-                return View(interacao);
             }
             catch
             {
-                return View(interacao);
+                return Json(new { Resultado = 0 }, JsonRequestBehavior.AllowGet);
             }
+            return Json(new { Resultado = 1 }, JsonRequestBehavior.AllowGet);
         }
 
         // GET: Interacao/Delete/5
@@ -141,6 +141,12 @@ namespace InteracoesMedicamentosas.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpPost]
+        public ActionResult Voltar()
+        {
+            return RedirectToAction("Index");
         }
     }
 }

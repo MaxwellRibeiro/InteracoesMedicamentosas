@@ -3,31 +3,37 @@
 @{
     Layout = "~/Views/Layout/Shared/_layout.cshtml";
 }
-
-
-<div>
-    <h4>Interacao</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Produto.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Produto.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Reacao.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Reacao.Nome)
-        </dd>
-
-    </dl>
+<div class="row  grey">
+    <div class="col s12 " align="center">
+        <p></p>
+        <p class="flow-text white-text">Interação</p>
+        <p></p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.InteracaoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="container-flux">
+    <div class="row">
+        <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+            <div class="row">
+                <div class="col s6">
+                    <label>Produto</label>
+                    <p>@Html.DisplayFor(model => model.Produto.Nome)</p>
+                    <hr/>
+                </div>
+                <div class="col s6">
+                    <label>Reação</label>
+                    <p>@Html.DisplayFor(model => model.Reacao.Nome)</p>
+                    <hr/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col offset-s5 2s">
+                    <input type="button" value="Voltar" onclick="history.go(-1)" class="btn btn-default" />
+                </div>
+                <div class="col 2s">      
+                    <a href="@Url.Action("Edit", "Interacao", new {id = Model.InteracaoId})" class="btn btn-default">Editar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -21,7 +21,7 @@
                 <div class="col s6">
                     <label>Produto</label>
                     <p>@Html.DisplayFor(model => model.Produto.Nome)</p>
-                    <hr />
+                    <hr/>
                 </div>
                 <div class="col s6">
                     <label>Reação</label>
@@ -30,18 +30,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col offset-s10 2s">
-                    @using (Html.BeginForm())
-                    {
-                        @Html.AntiForgeryToken()
-
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-default"/>
-                        </div>
-                    }
+                <div class="col offset-s5 2s">
+                    <input type="button" value="Voltar" onclick="history.go(-1)" class="btn btn-default" />
+                </div>
+                <div class="col 2s">
+                    <a href="@Url.Action("Delete", "Interacao", new {id = Model.InteracaoId})" class="btn btn-default">Deletar</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@Html.ActionLink("Voltar", "Index")
+
+@*@using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default"/>
+        </div>
+    }*@
+
+@*@Html.ActionLink("Voltar", "Index")*@

@@ -60,8 +60,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col offset-s11 1s">
-                        <a href="#" onclick="SalvarInteracao();">Salvar Pedido</a>
+                    <div class="col offset-s5 2s">
+                        <input type="button" value="Voltar" onclick="history.go(-1)" class="btn btn-default" />
+                    </div>
+                    <div class="col 2s">
+                        <a href="#" class="btn btn-default" onclick="SalvarInteracao();">Salvar</a>
                     </div>
                 </div>
             </div>
@@ -70,9 +73,6 @@
 
     @*<div id="divItens" style="display: none"></div>*@
 
-    <div>
-        @Html.ActionLink("Voltar", "Index")
-    </div>
 
 
 <script type="text/javascript">

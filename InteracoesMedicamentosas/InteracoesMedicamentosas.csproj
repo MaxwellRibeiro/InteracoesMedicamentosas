@@ -188,9 +188,9 @@
     <Content Include="Views\Reacao\Details.cshtml" />
     <Content Include="Views\Reacao\Edit.cshtml" />
     <Content Include="Views\Reacao\Delete.cshtml" />
-    <Content Include="Views\Reacao\Consulta.cshtml" />
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\Produto\Details.cshtml" />
+    <Content Include="Views\Reacao\Consulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\ConsultaReacao\" />
+    <Folder Include="Views\Consultar\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

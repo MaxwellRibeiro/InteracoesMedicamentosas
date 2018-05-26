@@ -34,9 +34,17 @@
     
         </dl>
     </div>
+          <p align="center">     
+              <a href="@Url.Action("Edit", "Reacao",new { id = Model.ReacaoId })" class="btn btn-default">Editar</a>
+              @*@Html.ActionLink("Edit", "Edit", new { id = Model.ReacaoId })*@        
+            <input type="button" value="Voltar" onclick="history.go(-1)" class="btn btn-default" />
+         </p>
+    
+
+    @*</div>
     <p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.ReacaoId }) |
         @Html.ActionLink("Back to List", "Index")
-    </p>
+    </p>*@
 </body>
 </html>

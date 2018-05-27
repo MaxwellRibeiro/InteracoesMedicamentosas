@@ -24,31 +24,37 @@ namespace InteracoesMedicamentosas.Controllers
            
         }
 
+        //public ActionResult Consulta()
+        //{
+
+        //    ViewBag.Reacoes = Context.Reacoes.OrderBy(p => p.Nome).ToList();
+        //    return View();
+        //    //int i = 0;
+        //    //if (id == null)
+        //    //{
+        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    //}
+
+        //    //Reacao reacao = Context.Reacoes.Find(id);
+        //    //if (reacao == null)
+        //    //{
+        //    //    return HttpNotFound();
+        //    //}
+
+        //    ////ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
+        //    //ViewBag.Reacoes = new SelectList(Context.Reacoes.OrderBy(p => p.Nome),"ReacaoId","Nome",i);
+        //    //return View();
+
+        //    ////var consulta = Context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).Where(c => c.ReacaoId == i);
+        //    ////return View(consulta);
+        //}
+
+        // GET: Reacao/Consulta/
         public ActionResult Consulta()
         {
-
             ViewBag.Reacoes = Context.Reacoes.OrderBy(p => p.Nome).ToList();
             return View();
-            //int i = 0;
-            //if (id == null)
-            //{
-            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-
-            //Reacao reacao = Context.Reacoes.Find(id);
-            //if (reacao == null)
-            //{
-            //    return HttpNotFound();
-            //}
-
-            ////ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
-            //ViewBag.Reacoes = new SelectList(Context.Reacoes.OrderBy(p => p.Nome),"ReacaoId","Nome",i);
-            //return View();
-
-            ////var consulta = Context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).Where(c => c.ReacaoId == i);
-            ////return View(consulta);
         }
-
 
         // GET: Reacao/Details/5                 
         public ActionResult Details(int? id)

@@ -17,8 +17,6 @@ namespace InteracoesMedicamentosas.Controllers
         // GET: Reacao
         public ActionResult Index()
         {
-            
-
             List<Reacao> ListaReacoes = Context.Reacoes.ToList();
             return View(ListaReacoes);
            

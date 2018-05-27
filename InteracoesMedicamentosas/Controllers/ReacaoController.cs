@@ -139,6 +139,12 @@ namespace InteracoesMedicamentosas.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult Voltar()
+        {
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

@@ -1,0 +1,81 @@
+﻿@using InteracoesMedicamentosas.Models
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>Home</title>*@
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    @RenderPage("~/Views/Layout/Shared/_cabecalho.cshtml")
+
+    <!-- Corpo-->
+    <div class="row  grey">
+        <div class="col s12 " align="center">
+            <p></p>
+            <p class="flow-text white-text">Consultar Reação</p>
+            <p></p>
+        </div>
+    </div>
+
+    <div class="container-flux">
+        <div class="row">
+            <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+                <div class="row">
+                        <div class="col s6" align="center">
+                            <label for="Reacao">Reações</label>
+                            <select name="Reacao" id="Reacao">
+                            @foreach (var reacao in (List<Reacao>)ViewBag.Reacoes)
+                            {
+                                <option value="@reacao.ReacaoId">@reacao.Nome</option>
+                            }
+                            </select>
+                       </div>
+                </div>
+                <div class="row">
+                    <div class="col offset-s5 2s">
+                        <a href="@Url.Action("Index", "Reacao")" class="btn btn-default">Voltar</a>
+                    </div>                    
+                    <div class="col 2s">
+                        <a href="#" class="btn btn-default" onclick="ListarItens(reacao.ReacaoId);">Consultar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div id="divItens" style="display: none"></div>*@
+
+
+
+    <script type="text/javascript">
+    //$(document).ready(function() {
+    //    $('select').material_select();
+    //});
+    $(document).ready(function () {
+        $('select').formSelect();
+    });
+    </script>
+
+
+
+    <script src="~/scripts/JS/Reacao.js"></script>
+
+    <!-- Rodapé -->
+    @RenderPage("~/Views/Layout/Shared/_rodape.cshtml")
+</body>
+</html>
+</html>

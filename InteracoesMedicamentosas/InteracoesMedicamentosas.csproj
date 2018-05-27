@@ -191,6 +191,7 @@
     <Content Include="Views\Reacao\Delete.cshtml" />
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\Produto\Details.cshtml" />
+    <Content Include="Views\Reacao\Consulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,9 +199,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Consultar\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>

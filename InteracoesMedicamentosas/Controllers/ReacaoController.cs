@@ -27,32 +27,47 @@ namespace InteracoesMedicamentosas.Controllers
 
         //    ViewBag.Reacoes = Context.Reacoes.OrderBy(p => p.Nome).ToList();
         //    return View();
-        //    //int i = 0;
-        //    //if (id == null)
-        //    //{
-        //    //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    //}
+        //    int i = 0;
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
 
-        //    //Reacao reacao = Context.Reacoes.Find(id);
-        //    //if (reacao == null)
-        //    //{
-        //    //    return HttpNotFound();
-        //    //}
+        //    Reacao reacao = Context.Reacoes.Find(id);
+        //    if (reacao == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-        //    ////ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
-        //    //ViewBag.Reacoes = new SelectList(Context.Reacoes.OrderBy(p => p.Nome),"ReacaoId","Nome",i);
-        //    //return View();
+        //    //ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
+        //    ViewBag.Reacoes = new SelectList(Context.Reacoes.OrderBy(p => p.Nome), "ReacaoId", "Nome", i);
+        //    return View();
 
-        //    ////var consulta = Context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).Where(c => c.ReacaoId == i);
-        //    ////return View(consulta);
+        //    //var consulta = Context.Interacoes.Include(p => p.Produto).Include(r => r.Reacao).Where(c => c.ReacaoId == i);
+        //    //return View(consulta);
         //}
 
-        // GET: Reacao/Consulta/
-        public ActionResult Consulta()
-        {
-            ViewBag.Reacoes = Context.Reacoes.OrderBy(p => p.Nome).ToList();
-            return View();
-        }
+        //// GET: Reacao/Consulta/
+        //public ActionResult Consulta()
+        //{
+        //    ViewBag.Reacoes = Context.Reacoes.OrderBy(p => p.Nome).ToList();
+        //    return View();
+        //}
+
+        //// GET: Reacao/ConsultaNova
+        //public ActionResult ConsultaNova(string Pesquisa ="")
+        //{
+        //    List<Interacao> ListaInteracao = Context.Interacoes.ToList();
+        //    return View(ListaInteracao);
+
+        //    var q = Context.Interacoes.AsQueryable();
+        //    if (!string.IsNullOrEmpty(Pesquisa))
+        //        q = q.Where(c => c.Reacao.Nome.Contains(Pesquisa));
+        //    q = q.OrderBy(c => c.Reacao.Nome);         
+
+        //}
+
+
 
         // GET: Reacao/Details/5                 
         public ActionResult Details(int? id)

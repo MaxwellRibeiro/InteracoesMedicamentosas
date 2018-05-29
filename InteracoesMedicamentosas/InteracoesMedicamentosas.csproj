@@ -155,6 +155,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Context\EFContext.cs" />
+    <Compile Include="Controllers\ConsultaReacaoController.cs" />
     <Compile Include="Controllers\InteracaoController.cs" />
     <Compile Include="Controllers\InteracoesMedicamentosasController.cs" />
     <Compile Include="Controllers\ItensController.cs" />
@@ -192,6 +193,8 @@
     <Content Include="Views\Produto\Create.cshtml" />
     <Content Include="Views\Produto\Details.cshtml" />
     <Content Include="Views\Reacao\Consulta.cshtml" />
+    <Content Include="Views\Reacao\ConsultaNova.cshtml" />
+    <Content Include="Views\ConsultaReacao\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

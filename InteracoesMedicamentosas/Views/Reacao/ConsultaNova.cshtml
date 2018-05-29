@@ -1,0 +1,52 @@
+﻿@model IEnumerable<InteracoesMedicamentosas.Models.Interacao>
+
+@{                                                                       @*ERRADAAAAAAAAAAAAAAAAAAAAAA*@
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ConsultaNova</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <p>
+        Pesquisar por Nome
+        @using (Html.BeginForm("ConsutaNova", "Reacao", FormMethod.Get))
+        {
+            @Html.TextBox("Pesquisa")
+            <input type="submit" value="Pesquisar" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reacao.Nome)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reacao.Nome)
+            </td>
+           
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

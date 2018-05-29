@@ -1,0 +1,53 @@
+﻿@model IEnumerable<InteracoesMedicamentosas.Models.Interacao>
+
+@{
+    Layout = "~/Views/Layout/Shared/_layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Consulta de produtos por reação </title>
+</head>
+<body>
+   
+    <p>
+        Consulta de produtos por reação
+        @using (Html.BeginForm("Index", "ConsultaReacao", FormMethod.Get))
+        {
+            @Html.TextBox("Pesquisa")
+            <input type="submit" value="Pesquisar" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Reacao.Nome)*@
+                Reação
+            </th>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Produto.Nome)*@
+                Produto
+            </th>
+           
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reacao.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.Nome)
+            </td>
+            
+          
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

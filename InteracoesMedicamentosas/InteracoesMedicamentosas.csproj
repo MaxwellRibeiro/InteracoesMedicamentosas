@@ -130,7 +130,10 @@
       <DependentUpon>InteracoesMedicamentosas.mdf</DependentUpon>
     </Content>
     <Content Include="Global.asax" />
+    <Content Include="Img\medicamento.jpg" />
     <Content Include="Img\ParallaxMedico.jpg" />
+    <Content Include="Img\pesquisa.jpg" />
+    <Content Include="Img\reacao.jpg" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />

@@ -1,0 +1,78 @@
+﻿@model IEnumerable<InteracoesMedicamentosas.Models.Produto>
+
+@{
+    Layout = "~/Views/Layout/Shared/_layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<title>Home</title>*@
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+    <div class="row  grey">
+        <div class="col s12 " align="center">
+            <p></p>
+            <p class="flow-text white-text">Consultar Interações Medicamentosas Entre Medicamentos</p>
+            <p></p>
+        </div>
+    </div>
+
+    <form class="row"
+        <div class="input-field col s12">
+            <select multiple name="CbMedicamento" id="CbMedicamento">
+                <option value="" disabled selected>Choose your option</option>
+            @foreach (var item in Model)
+            {
+                <option value=" @Html.DisplayFor(modelItem => item.ProdutoId)">@Html.DisplayFor(modelItem => item.Nome)</option>
+            }
+            </select>
+            <label>Materialize Multiple Select</label>
+        </div>
+    </form>
+
+    <div class="col 2s">
+        <a href="#" class="btn btn-default" onclick="MostraInteracaoProduto();">Procurar Interação</a>
+    </div>
+
+    <div class="col s12">
+        <div class="row">
+            <h2>Reação</h2>
+        </div>
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                <div class="col-md-10">
+
+                    <hr />
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+
+    <script src="~/scripts/JS/Produto.js"></script>
+
+</body>
+</html>

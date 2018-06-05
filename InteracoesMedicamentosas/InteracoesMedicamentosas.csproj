@@ -144,6 +144,7 @@
     <Content Include="scripts\jquery.validate.min.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.js" />
     <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="scripts\JS\Produto.js" />
     <Content Include="scripts\JS\Reacao.js" />
     <Content Include="Views\Layout\Shared\_layout.cshtml" />
     <Content Include="Views\Layout\Shared\_cabecalho.cshtml" />
@@ -198,6 +199,8 @@
     <Content Include="Views\Reacao\Consulta.cshtml" />
     <Content Include="Views\Reacao\ConsultaNova.cshtml" />
     <Content Include="Views\ConsultaReacao\Index.cshtml" />
+    <Content Include="Views\Produto\Delete.cshtml" />
+    <Content Include="Views\Produto\Consulta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -11,6 +11,7 @@ function MostraInteracaoProduto() {
         type: "GET"
         , url: url
         , success: function (data) {
+            $("#label").val(data);
 
         }
     });

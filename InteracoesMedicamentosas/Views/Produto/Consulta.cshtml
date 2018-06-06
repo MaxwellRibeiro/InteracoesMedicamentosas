@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<InteracoesMedicamentosas.Models.Produto>
 
 @{
-    Layout = "~/Views/Layout/Shared/_layout.cshtml";
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -22,6 +22,9 @@
 </head>
 <body>
 
+    <!-- Cabeçalho -->
+    @RenderPage("~/Views/Layout/Shared/_cabecalho.cshtml")
+
     <div class="row  grey">
         <div class="col s12 " align="center">
             <p></p>
@@ -30,49 +33,119 @@
         </div>
     </div>
 
-    <form class="row"
-        <div class="input-field col s12">
-            <select multiple name="CbMedicamento" id="CbMedicamento">
-                <option value="" disabled selected>Choose your option</option>
-            @foreach (var item in Model)
-            {
-                <option value=" @Html.DisplayFor(modelItem => item.ProdutoId)">@Html.DisplayFor(modelItem => item.Nome)</option>
-            }
-            </select>
-            <label>Materialize Multiple Select</label>
-        </div>
-    </form>
-
-    <div class="col 2s">
-        <a href="#" class="btn btn-default" onclick="MostraInteracaoProduto();">Procurar Interação</a>
-    </div>
-
-    <div class="col s12">
+    <div class="container-flux">
         <div class="row">
-            <h2>Reação</h2>
-        </div>
-        <div class="row">
-            @using (Html.BeginForm())
-            {
-                <div class="col-md-10">
+            <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+                <div class="row">
+                    <div class="col s8">
+                        <form class="col s12">
+                            <div class="input-field col s12">
+                                <select multiple name="CbMedicamento" id="CbMedicamento">
+                                    <option value="" disabled selected>Selecione os medicamentos para interação </option>
+                                    @foreach (var item in Model)
+                                    {
+                                        <option value=" @Html.DisplayFor(modelItem => item.ProdutoId) ">@Html.DisplayFor(modelItem => item.Nome)</option>
+                                    }
+                                </select>
 
-                    <hr />
+                            </div>
+                        </form>
+
+                    </div>
+
                 </div>
-            }
+
+                <div class="row">
+                    <div class="col offset-s5 2s">
+                        <a href="#" class="btn btn-default" onclick="MostraInteracaoProduto();">Procurar Interação</a>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 
+    <div class="container-flux">
+        <div class="row">
+            <div class="col s10 offset-s1 grey lighten-2" style="padding-top: 15px;">
+                <div class="row">
+                    <div class="col s8" align="left">
+                        <h4>Reação entre os medicamentos</h4>
+                    </div>                 
+                </div>
 
+                <div class="row">
+                    <div class="col s12">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input disabled value="" id="label" type="text" class="validate">
+                                    <label for="disabled"></label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+    </div>
+    @*<div class="row  grey">
+            <div class="col s12 " align="center">
+                <p></p>
+                <p class="flow-text white-text">Consultar Interações Medicamentosas Entre Medicamentos</p>
+                <p></p>
+            </div>
+        </div>*@
+
+    @*<form class="row"
+            <div class="input-field col s12">
+                <select multiple name="CbMedicamento" id="CbMedicamento">
+                    <option value="" disabled selected>Choose your option</option>
+                @foreach (var item in Model)
+                {
+                    <option value=" @Html.DisplayFor(modelItem => item.ProdutoId)">@Html.DisplayFor(modelItem => item.Nome)</option>
+                }
+                </select>
+                <label>Materialize Multiple Select</label>
+            </div>
+        </form>*@
+
+    @*<div class="col 2s">
+            <a href="#" class="btn btn-default" onclick="MostraInteracaoProduto();">Procurar Interação</a>
+        </div>*@
+
+    @*<div class="col s12">
+        <div class="row">
+            <h4>Reação</h4>
+        </div>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input disabled value="" id="label" type="text" class="validate">
+                        <label for="disabled"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>*@
 
     <script type="text/javascript">
 
-        $(document).ready(function () {
-            $('select').formSelect();
-        });
+                            $(document).ready(function () {
+                                $('select').formSelect();
+                            });
+
+                            $(document).ready(function () {
+                                M.updateTextFields();
+                            });
     </script>
 
     <script src="~/scripts/JS/Produto.js"></script>
+
+    <!-- Rodapé -->
+    @RenderPage("~/Views/Layout/Shared/_rodape.cshtml")
 
 </body>
 </html>

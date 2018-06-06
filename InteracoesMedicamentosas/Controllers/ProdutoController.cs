@@ -138,20 +138,40 @@ namespace InteracoesMedicamentosas.Controllers
             var ListaAuxiliar = ListaInteracoes.Select(x => x.ReacaoId).Distinct().ToList();
             string reacao = "";
 
+            int cont = 0;
             foreach (var objeto in ListaAuxiliar)
             {
 
-                if (ListaMedicamentosSelecionado != null)
+                if (ListaMedicamentosSelecionado != null )
                 {
-
-                    if (ListaInteracoes.Count() > 0 && ListaInteracoes.Where(x => x.ReacaoId == objeto).Count() == ListaMedicamentosSelecionado.Count())
+                    if (ListaMedicamentosSelecionado.Count() > 1)
                     {
-                        reacao += ListaInteracoes.Where(x => x.ReacaoId == objeto).Select(x => x.Reacao.Descricao).FirstOrDefault();
+
+                        if (ListaInteracoes.Count() > 0 && ListaInteracoes.Where(x => x.ReacaoId == objeto).Count() == ListaMedicamentosSelecionado.Count())
+                        {
+                            if (cont > 0)
+                            { reacao += ", "; }
+
+                            reacao += ListaInteracoes.Where(x => x.ReacaoId == objeto).Select(x => x.Reacao.Nome).FirstOrDefault();
+                            cont++;
+                        }
+
+                    }
+                    else
+                    {
+                        reacao = "Não existe interação para um medicamento! Selecione mais medicamentos!";
                     }
 
                 }
+                else
+                {
+                    reacao = "Não há interação para os medicamentos selecionados!";
+                }
 
             }
+
+            if (reacao == "")
+                reacao = "Não há interação para os medicamentos selecionados!";
 
             return reacao;
         }
